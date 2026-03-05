@@ -11,7 +11,7 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-5cd238f278ab/my-repository/hello-cloudbuild-dev:v1.0.0'
+  - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-5cd238f278ab/my-repository/hello-cloudbuild-dev:v1.0'
   - '.'
 
 # Push image
@@ -19,13 +19,13 @@ steps:
   id: 'Push Docker image'
   args:
   - 'push'
-  - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-5cd238f278ab/my-repository/hello-cloudbuild-dev:v1.0.0'
+  - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-5cd238f278ab/my-repository/hello-cloudbuild-dev:v1.0'
 
 # Deploy to dev namespace
 - name: 'gcr.io/cloud-builders/kubectl'
   id: 'Deploy'
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-f'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
   args:
   - '-n'
